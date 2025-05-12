@@ -18,7 +18,7 @@ const EmailSection = () => {
       <div className="z-10">
         <h5 className="text-3xl font-bold text-white mb-4">Let&apos;s Connect</h5>
         <p className="text-[#ADB7BE] mb-6 max-w-md leading-relaxed">
-          I'm currently open to new opportunities. Whether you have a project in mind, a question, or just want to connect — feel free to reach out!
+          I&apos'm currently open to new opportunities. Whether you have a project in mind, a question, or just want to connect — feel free to reach out!
         </p>
 
 
