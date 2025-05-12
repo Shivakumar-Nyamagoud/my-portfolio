@@ -12,7 +12,7 @@ const projectsData = [
     image: "/images/projects/1.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/Shivakumar-Nyamagoud/my-portfolio.git",
-    previewUrl: "/",
+    previewUrl: "https://shivakumar-portfolio-1.netlify.app/",
   },
   {
     id: 2,
