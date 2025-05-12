@@ -9,27 +9,47 @@ const EmailSection = () => {
   return (
     <section
       id="contact"
-      className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative"
+      className="grid md:grid-cols-2 my-12 py-24 px-6 md:px-12 gap-6 relative overflow-hidden"
     >
-      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
+      {/* Background glow effect */}
+      <div className="absolute h-72 w-72 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full blur-3xl top-3/4 -left-10 transform -translate-x-1/2 -translate-y-1/2 z-0"></div>
+
+      {/* Content Section */}
       <div className="z-10">
-        <h5 className="text-xl font-bold text-white my-2">
-          Let&apos;s Connect
-        </h5>
-        <p className="text-[#ADB7BE] mb-4 max-w-md">
-          I&apos;m currently looking for new opportunities. Whether you have a question
-          or just want to say hi, feel free to reach out or connect with me!
+        <h5 className="text-3xl font-bold text-white mb-4">Let&apos;s Connect</h5>
+        <p className="text-[#ADB7BE] mb-6 max-w-md leading-relaxed">
+          I'm currently open to new opportunities. Whether you have a project in mind, a question, or just want to connect — feel free to reach out!
         </p>
-        <div className="text-[#ADB7BE] mb-6">
-          <p><strong>Email:</strong> kohallishreeshail@gmail.com</p>
-          <p><strong>Phone:</strong> +91 93536 04419</p>
+
+
+        <div className="text-[#ADB7BE] mb-6 space-y-1">
+          <p><strong>Email:</strong> shivakumarnyamagoud@gmail.com</p>
+          <p><strong>Phone:</strong> +91 80503 85397</p>
         </div>
-        <div className="socials flex flex-row gap-2">
-          <Link href="https://github.com/shreeshailk09" target="_blank">
-            <Image src={GithubIcon} alt="Github Icon" />
+
+        {/* Social Icons */}
+        <div className="flex flex-row gap-4 items-center">
+          <Link
+            href="https://github.com/shivakumar-nyamagoud"
+            target="_blank"
+            aria-label="Visit my GitHub"
+          >
+            <Image
+              src={GithubIcon}
+              alt="GitHub Icon"
+              className="w-8 h-8 hover:scale-110 transition-transform duration-200"
+            />
           </Link>
-          <Link href="https://www.linkedin.com/in/shreeshail-appasab-kohalli-994541314/" target="_blank">
-            <Image src={LinkedinIcon} alt="Linkedin Icon" />
+          <Link
+            href="https://www.linkedin.com/in/shivakumar-nyamagoud-43a87a328"
+            target="_blank"
+            aria-label="Visit my LinkedIn"
+          >
+            <Image
+              src={LinkedinIcon}
+              alt="LinkedIn Icon"
+              className="w-8 h-8 hover:scale-110 transition-transform duration-200"
+            />
           </Link>
         </div>
       </div>

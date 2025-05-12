@@ -11,7 +11,7 @@ const projectsData = [
     description: "A simple portfolio website built with React",
     image: "/images/projects/1.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
+    gitUrl: "https://github.com/Shivakumar-Nyamagoud/my-portfolio.git",
     previewUrl: "/",
   },
   {
@@ -20,17 +20,17 @@ const projectsData = [
     description: "A informative and decriptive website showcasing Indian culture",
     image: "/images/projects/2.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/Shivakumar-Nyamagoud/IndianCulture.git  ",
+    previewUrl: "https://shivakumar-nyamagoud.github.io/IndianCulture/",
   },
   {
     id: 3,
-    title: "Flipkart clone",
-    description: "cloned website of flipkart",
+    title: "Feedback Collector",
+    description: "Simple feedback collector using Next",
     image: "/images/projects/3.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/Shivakumar-Nyamagoud/feedback-collector.git",
+    previewUrl: "https://sparkling-sundae-b2a228.netlify.app/",
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const projectsData = [
     description: "A website to assist students in their studies",
     image: "/images/projects/4.png",
     tag: ["All", "Mobile"],
-    gitUrl: "/",
+    gitUrl: "https://github.com/Shivakumar-Nyamagoud/StudentAssistence.git",
     previewUrl: "/",
   },
   // {
@@ -70,39 +70,49 @@ const ProjectsSection = () => {
     setTag(newTag);
   };
 
-  const filteredProjects = projectsData.filter((project) =>
-    project.tag.includes(tag)
-  );
+  const filteredProjects =
+    tag === "All"
+      ? projectsData
+      : projectsData.filter((project) => project.tag.includes(tag));
 
   const cardVariants = {
     initial: { y: 50, opacity: 0 },
     animate: { y: 0, opacity: 1 },
   };
 
+  // Example Tags: ["All", "Frontend", "Backend", "Fullstack"]
+  const tags = ["All", "Frontend", "Backend", "Fullstack"];
+
   return (
-    <section id="projects">
-      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
+    <section id="projects" className="py-12 px-4 md:px-8">
+      <h2 className="text-center text-4xl font-bold text-white mb-8">
         My Projects
       </h2>
-      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-        <ProjectTag
-          onClick={handleTagChange}
-          name="All"
-          isSelected={tag === "All"}
-        />
-       
+
+      <div className="flex flex-wrap justify-center items-center gap-4 mb-8">
+        {tags.map((tagName) => (
+          <ProjectTag
+            key={tagName}
+            name={tagName}
+            isSelected={tag === tagName}
+            onClick={handleTagChange}
+          />
+        ))}
       </div>
-      <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
+
+      <ul
+        ref={ref}
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+      >
         {filteredProjects.map((project, index) => (
           <motion.li
-            key={index}
+            key={project.id}
             variants={cardVariants}
             initial="initial"
             animate={isInView ? "animate" : "initial"}
-            transition={{ duration: 0.3, delay: index * 0.4 }}
+            transition={{ duration: 0.3, delay: index * 0.2 }}
           >
             <ProjectCard
-              key={project.id}
               title={project.title}
               description={project.description}
               imgUrl={project.image}
