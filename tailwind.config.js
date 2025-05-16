@@ -15,6 +15,8 @@ module.exports = {
       },
       fontFamily: {
         poppins: ['var(--font-poppins)'],
+        bradley: ['"Bradley Hand ITC"', 'cursive'],
+        bodoni: ['"Bodoni MT Black"', 'serif'],
       },
 
     },

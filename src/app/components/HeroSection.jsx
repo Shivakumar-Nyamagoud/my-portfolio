@@ -16,8 +16,8 @@ const HeroSection = () => {
           transition={{ duration: 0.6 }}
           className="md:col-span-7 text-center md:text-left"
         >
-          <h1 className="text-white mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
+          <h1 className="text-white mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight font-bradley">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600 ">
               Hello, I&apos;m
             </span>
             <br />

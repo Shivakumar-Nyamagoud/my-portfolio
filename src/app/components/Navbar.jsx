@@ -34,7 +34,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#121212] border-b border-[#33353F] backdrop-blur-lg">
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
         {/* Logo / Title */}
-        <Link href="/" className="text-2xl md:text-4xl font-bold text-white">
+        <Link href="/" className="text-2xl md:text-4xl font-bold text-white font-bodoni">
           Shivakumar Nyamagoud
         </Link>
 
