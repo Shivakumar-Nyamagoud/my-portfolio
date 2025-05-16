@@ -4,18 +4,25 @@ import Link from "next/link";
 
 const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
   return (
-    <div className="overflow-hidden rounded-xl shadow-lg transition-transform duration-300 hover:scale-[1.02] bg-[#181818]">
+    <div className="overflow-hidden rounded-xl shadow-lg transition-transform duration-300 hover:scale-[1.02] bg-[#181818] w-full max-w-sm md:max-w-md">
       <div
         className="h-52 md:h-72 rounded-t-xl relative group"
-        style={{ background: `url(${imgUrl})`, backgroundSize: "cover", backgroundPosition: "center" }}
+        style={{
+          background: `url(${imgUrl})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
+        {/* Visually hidden text for screen readers */}
+        <div className="sr-only">{title} project image</div>
+
         <div className="absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 group-hover:bg-opacity-80 flex items-center justify-center gap-4 transition-all duration-500 opacity-0 group-hover:opacity-100">
           <Link
             href={gitUrl}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View Source Code"
-            className="h-14 w-14 border-2 rounded-full border-[#ADB7BE] hover:border-white flex items-center justify-center"
+            className="h-14 w-14 border-2 rounded-full border-[#ADB7BE] hover:border-white flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary-500"
           >
             <CodeBracketIcon className="h-8 w-8 text-[#ADB7BE] group-hover:text-white" />
           </Link>
@@ -24,7 +31,7 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View Live Project"
-            className="h-14 w-14 border-2 rounded-full border-[#ADB7BE] hover:border-white flex items-center justify-center"
+            className="h-14 w-14 border-2 rounded-full border-[#ADB7BE] hover:border-white flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary-500"
           >
             <EyeIcon className="h-8 w-8 text-[#ADB7BE] group-hover:text-white" />
           </Link>

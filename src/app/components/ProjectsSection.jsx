@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
@@ -17,16 +18,16 @@ const projectsData = [
   {
     id: 2,
     title: "Indian culture showcasing website",
-    description: "A informative and decriptive website showcasing Indian culture",
+    description: "An informative and descriptive website showcasing Indian culture",
     image: "/images/projects/2.png",
     tag: ["All", "Frontend"],
-    gitUrl: "https://github.com/Shivakumar-Nyamagoud/IndianCulture.git  ",
+    gitUrl: "https://github.com/Shivakumar-Nyamagoud/IndianCulture.git",
     previewUrl: "https://shivakumar-nyamagoud.github.io/IndianCulture/",
   },
   {
     id: 3,
     title: "Feedback Collector",
-    description: "Simple feedback collector using Next",
+    description: "Simple feedback collector using Next.js",
     image: "/images/projects/3.png",
     tag: ["All", "Frontend", "Backend", "Fullstack"],
     gitUrl: "https://github.com/Shivakumar-Nyamagoud/feedback-collector.git",
@@ -41,61 +42,41 @@ const projectsData = [
     gitUrl: "https://github.com/Shivakumar-Nyamagoud/StudentAssistence.git",
     previewUrl: "/",
   },
-  // {
-  //   id: 5,
-  //   title: "React Firebase Template",
-  //   description: "Authentication and CRUD operations",
-  //   image: "/images/projects/5.png",
-  //   tag: ["All", "Web"],
-  //   gitUrl: "/",
-  //   previewUrl: "/",
-  // },
-  // {
-  //   id: 6,
-  //   title: "Full-stack Roadmap",
-  //   description: "Project 5 description",
-  //   image: "/images/projects/6.png",
-  //   tag: ["All", "Web"],
-  //   gitUrl: "/",
-  //   previewUrl: "/",
-  // },
 ];
 
 const ProjectsSection = () => {
-  const [tag, setTag] = useState("All");
+  const [selectedTag, setSelectedTag] = useState("All");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const handleTagChange = (newTag) => {
-    setTag(newTag);
-  };
+  const tags = ["All", "Frontend", "Backend", "Fullstack"];
 
+  // Filter projects based on selected tag
   const filteredProjects =
-    tag === "All"
+    selectedTag === "All"
       ? projectsData
-      : projectsData.filter((project) => project.tag.includes(tag));
+      : projectsData.filter((project) => project.tag.includes(selectedTag));
 
+  // Animation variants for cards
   const cardVariants = {
     initial: { y: 50, opacity: 0 },
     animate: { y: 0, opacity: 1 },
   };
 
-  // Example Tags: ["All", "Frontend", "Backend", "Fullstack"]
-  const tags = ["All", "Frontend", "Backend", "Fullstack"];
-
   return (
-    <section id="projects" className="py-12 px-4 md:px-8">
-      <h2 className="text-center text-4xl font-bold text-white mb-8">
-        My Projects
-      </h2>
+    <section
+      id="projects"
+      className="py-12 px-4 md:px-8 bg-[#0F0F11] text-white"
+    >
+      <h2 className="text-center text-4xl font-bold mb-8">My Projects</h2>
 
       <div className="flex flex-wrap justify-center items-center gap-4 mb-8">
         {tags.map((tagName) => (
           <ProjectTag
             key={tagName}
             name={tagName}
-            isSelected={tag === tagName}
-            onClick={handleTagChange}
+            isSelected={selectedTag === tagName}
+            onClick={() => setSelectedTag(tagName)}
           />
         ))}
       </div>

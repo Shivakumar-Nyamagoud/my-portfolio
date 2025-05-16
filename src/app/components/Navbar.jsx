@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
@@ -13,6 +13,22 @@ const navLinks = [
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (navbarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [navbarOpen]);
+
+  // Close menu handler
+  const closeMenu = () => setNavbarOpen(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#121212] border-b border-[#33353F] backdrop-blur-lg">
@@ -46,7 +62,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      {navbarOpen && <MenuOverlay links={navLinks} />}
+      {navbarOpen && <MenuOverlay links={navLinks} onClose={closeMenu} />}
     </nav>
   );
 };
